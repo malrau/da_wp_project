@@ -57,6 +57,7 @@ CREATE TABLE writer(
 	firstName VARCHAR(24),
 	lastName VARCHAR(24),
 	pseudonym VARCHAR(24),
+	UNIQUE(firstName, lastName),
 	PRIMARY KEY(writerID)
 	);
 
@@ -65,6 +66,7 @@ CREATE TABLE artist(
 	firstName VARCHAR(24),
 	lastName VARCHAR(24),
 	pseudonym VARCHAR(24),
+	UNIQUE(firstName, lastName),
 	PRIMARY KEY(artistID)
 	);
  
