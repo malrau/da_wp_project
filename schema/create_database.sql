@@ -12,6 +12,7 @@ CREATE TABLE comicBook(
 	description VARCHAR(512),
 	nrPages INT,
 	price FLOAT,
+	coverFolder VARCHAR(256),
 	PRIMARY KEY(cbID)
 	);
 
