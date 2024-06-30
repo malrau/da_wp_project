@@ -1,0 +1,318 @@
+/* 
+    Created on : 19 Oct 2023, 22:52:35
+    Author     : mau
+*/
+
+body {
+    background-color: white;
+}
+
+/***************************/
+/****** header element *****/
+/***************************/
+header {
+    margin: 1em;
+    padding: 0.5em;
+    font-family: optima, helvetica, 'Gill Sans', impact, menlo, skia, sans-serif;
+    color: rgba(255, 255, 255, 1);
+    width: 82em;
+    height: 14em;
+    /*background-color: #7575dd; //lighter purple*/
+    background-color: rgb(100, 82, 255); /* 35 year old purple*/
+}
+header #left {
+    width: 35em;
+    height: 14em;
+    float: left;
+    margin: 0.1em;   
+    padding: 0em;
+}
+header #left>h1 {
+    position: absolute;
+    top: 0.5em;
+    left: 0em;
+    margin-left: 1em;
+}
+header #left>h1>a {
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
+header #left>h1>a:hover {
+    color: rgba(255, 255, 25, 1);
+}
+header #left>h3 {
+    position: relative;
+    top: 6em;
+    left: 2em;
+    width: 25em;
+    margin-left: 0.5em;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: justify;
+}
+header #right .header_img {
+    margin: 1em 0em 1em 0em;
+    padding: 0em;
+    height: 10em;
+}
+
+/***************************/
+/********  nav bar  ********/
+/***************************/
+nav {
+    margin-left: 1em;
+    float: left;
+    font-family: Georgia;
+    border: solid;
+    border-width: 0.05em;
+    background-color: rgba(230, 230, 230, 1);
+    width: 16.5em;
+    height: 32em;
+}
+nav li {
+    margin-left: -1.2em;
+    margin-bottom: 0.5em;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav>h4 {
+    margin: 0.5em;
+    padding: 0.5em;
+    text-align: center;
+}
+
+/***************************/
+/******    section    ******/
+/***************************/
+section#products {
+    min-height: 32em;
+    width: 64.8em;
+    margin-left: 18em;
+    margin-right: 1em;
+    padding: 0.5em;
+    font-family: Georgia, serif;
+    border: black;
+    border-style: double;
+    background-color: rgba(255, 248, 231, 1);
+    /*background-image: url('images/alanford_tr.jpg');*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+section>h3 {
+    margin: 0.5em;
+    padding: 0.5em;
+    font-size: 1.5em;
+    text-align: center;
+    color: rgba(255, 248, 255, 1);
+    margin-left: 0.5em;
+    background-color: rgba(21, 96, 189, 0.9);
+}
+section .bestsellers {
+    width: 20%;
+    height: 75%;
+    font-weight: bold;
+    overflow: unset;
+    margin: 0.5em;
+    margin-left: 0.7em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    border: solid;
+    border-width: 0.05em;
+    float: left;
+}
+section .thumbnail {
+    width: 10em;
+    box-shadow: 0.2em 0.2em 0.5em black;
+}
+section .best_des {
+    background-color: rgba(180, 180, 180, 0.5);
+}
+
+/* contact_us.html */
+section#contact_form {
+    background-color: rgba(255, 248, 231, 1);
+    background-image: url('');
+}
+textarea {
+    width: 30em;
+    height: 14em;
+}
+section #personal {
+    width: 20em;
+    height: 15em;
+    font-weight: bold;
+    overflow: unset;
+    margin: 0.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    float: left;
+}
+section #personal input {
+    width: 20em;
+}
+section #reason {
+    height: 15em;
+    font-weight: bold;
+    overflow: unset;
+    margin: 0.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+}
+section [type = submit] {
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(20, 80, 255, 1);
+}
+
+/* publisher_name.html */
+nav>p>a.back_home_button {
+    position: relative;
+    top: 2em;
+    left: 5em;
+    font-weight: bold;
+    font-style: oblique;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 123, 255, 1);
+    padding: 0.3em;
+    box-shadow: 5px 10px;
+    border: outset;
+    border-radius: 0.5em;
+}
+div.list_cb {
+    width: 28em;
+    height: 10em;
+    font-weight: bold;
+    overflow: unset;
+    margin: 0.5em;
+    margin-left: 0.7em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 0.5em;
+    border: solid;
+    border-width: 0.05em;
+    float: left;
+}
+div>a>img.list_thumbnail {
+    width: 5em;
+    box-shadow: 0.2em 0.2em 0.5em black;
+    float: left;
+}
+div>p.list_title {
+    width: 21.5em;
+    height: 2.5em;
+    margin-left: 8em;
+    text-align: left;
+    font-size: 0.85em;
+    background-color: rgba(255, 248, 220, 0.5);
+    position: absolute;
+    float: left;
+}
+div>p.list_info {
+    width: 21.5em;
+    height: 4em;
+    margin-left: 8em;
+    text-align: left;
+    font-size: 0.85em;
+    background-color: rgba(255, 248, 220, 0.5);
+    float: left;
+}
+section#marvel {
+    background-image: url('marvel/images/marvel_back_op.jpeg');
+    background-size: cover;
+}
+section#dc {
+    background-image: url('dc/images/dc_bw_op.jpg');
+    background-size: cover;
+}
+section#bonelli {
+    background-image: url('bonelli/images/bonelli_char_op.jpg');
+    background-size: cover;
+}
+
+/* comic_book_name.html */
+section.marvelcb {
+    background-image: url('marvel/images/marvel_back_op.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+section.dccb {
+    background-image: url('dc/images/dc_bw_op.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+section.bonellicb {
+    background-image: url('bonelli/images/bonelli_char_op.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+section .cbtitle {
+    margin-left: 1em;
+}
+section .cbimg {
+    width: 17em;
+    font-weight: bold;
+    overflow: unset;
+    margin: 0.5em;
+    margin-left: 0.7em;
+    box-shadow: 0.2em 0.2em 0.5em black;
+    float: left;
+}
+
+section .cbdes {
+    width: 40em;
+    position: absolute;
+    left: 40em;
+    padding: 0.5em;
+    text-align: justify;
+    background-color: rgba(255, 248, 220, 0.5);
+}
+
+section .navigation {
+    position: relative;
+    top: 18em;
+    right: 20em;
+}
+a.back_button {
+    position: relative;
+    top: 8rem;
+    left: 23em;
+    font-weight: normal;
+    font-style: oblique;
+    text-decoration: none;
+    color: rgba(245, 225, 200, 1);
+    background-color: rgba(170, 64, 0, 1);
+    padding: 0.3em;
+    box-shadow: inset;
+    border: outset;
+    border-radius: 0.5em;
+}
+
+/***************************/
+/*******    footer    ******/
+/***************************/
+footer {
+    margin: 1em;
+    padding: 0.5em;
+    border: solid;
+    border-width: 0.05em;
+    font-size: large;
+    /*background-color: rgba(21, 96, 189, 0.9);*/
+    /*background-color: rgba(21, 96, 189, 0.9);*/
+    background-color: rgba(225, 165, 0, 0.5);
+    color: rgba(100, 50, 255, 1);
+    width: 72.5em;
+    position: absolute;
+    float: bottom;
+}
