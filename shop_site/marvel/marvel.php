@@ -3,16 +3,16 @@
     <head>
         <title>Marvel Comics</title>
         <meta charset="UTF-8">
-        <link rel = 'stylesheet' href = '../shopStyle.css' />
+        <link rel = 'stylesheet' href = '/shopStyle.css' />
         <link rel = 'stylesheet' href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' />
 	<script type = 'text/javascript' src = 'marvelPage.js'></script>
-	<script type = 'text/javascript' src = '../buildComicBookSmallCard.js' /></script>
-	<script type = 'text/javascript' src = '../buildPublisherPage.js' /></script>
+	<script type = 'text/javascript' src = '/buildComicBookSmallCard.js' /></script>
+	<script type = 'text/javascript' src = '/buildPublisherPage.js' /></script>
     </head>
     <body>
         <header>
             <div id = 'left'>
-                <h1><a href = '../index.html'>Comic books'r us</a></h1>
+                <h1><a href = '/index.html'>Comic books'r us</a></h1>
                 <h3>
                     The best place to buy comic books from the top comic book
                     publishers such as American Marvel and DC Comics or Italian Sergio 
@@ -20,27 +20,27 @@
                 </h3>
             </div>
             <div id = 'right'>
-                <img src = '../images/superciuk.gif' class = 'header_img' />
-                <img src = '../images/larsen.png' class = 'header_img' />
-                <img src = '../images/tdkr.jpg' class = 'header_img' />
-                <img src = '../images/zagor.png' class = 'header_img' />
+                <img src = '/images/superciuk.gif' class = 'header_img' />
+                <img src = '/images/larsen.png' class = 'header_img' />
+                <img src = '/images/tdkr.jpg' class = 'header_img' />
+                <img src = '/images/zagor.png' class = 'header_img' />
             </div>
         </header>
         <nav class = 'bg-light'>
             <h4>Select a publisher to see a list of comic books</h4>
             <ul>
                 <li class = 'homelist'>
-                    <a href = 'marvel.html'><img src = 'images/Marvel-Comics-Logo.png' title = 'Marvel Comics' height = '60' /></a>
+                    <a href = '/marvel/marvel.html'><img src = 'images/Marvel-Comics-Logo.png' title = 'Marvel Comics' height = '60' /></a>
                 </li>
                 <li class = 'homelist'>
-                    <a href = '../dc/dc.html'><img src = '../dc/images/DC-comics-logo.png' title = 'DC Comics' height = '80' /></a>
+                    <a href = '/dc/dc.html'><img src = '../dc/images/DC-comics-logo.png' title = 'DC Comics' height = '80' /></a>
                 </li>
                 <li class = 'homelist'>
-                    <a href = '../bonelli/bonelli.html'><img src = '../bonelli/images/bonelli-logo.png' title = 'Sergio Bonelli Editore' height = '60' /></a>
+                    <a href = '/bonelli/bonelli.html'><img src = '../bonelli/images/bonelli-logo.png' title = 'Sergio Bonelli Editore' height = '60' /></a>
                 </li>
             </ul>
             <p>
-                <a href = '../index.html' class = 'back_home_button btn btn-outline-primary'>Back home</a>
+                <a href = '/index.html' class = 'back_home_button btn btn-outline-primary'>Back home</a>
             </p>
         </nav>
 	<?php
@@ -85,7 +85,7 @@
         </section>
         <footer title = 'contactus'>
             <h3>For any info:</h3>
-            <a href = '../contact_us.html'>Contact us</a>
+            <a href = '/contact_us.html'>Contact us</a>
             <br/>
             <h4 align = 'center'>Comic books'r us SRL</h4>
             <h4 align = 'center'>P.zza Pugliatti 1, 98122 Messina</h4>
