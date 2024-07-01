@@ -30,13 +30,13 @@
             <h4>Select a publisher to see a list of comic books</h4>
             <ul>
                 <li class = 'homelist'>
-                    <a href = '/marvel/marvel.html'><img src = '/images/Marvel-Comics-Logo.png' title = 'Marvel Comics' height = '60' /></a>
+                    <a href = '/marvel/marvel.php'><img src = '/images/Marvel-Comics-Logo.png' title = 'Marvel Comics' height = '60' /></a>
                 </li>
                 <li class = 'homelist'>
-                    <a href = '/dc/dc.html'><img src = '/images/DC-comics-logo.png' title = 'DC Comics' height = '80' /></a>
+                    <a href = '/dc/dc.php'><img src = '/images/DC-comics-logo.png' title = 'DC Comics' height = '80' /></a>
                 </li>
                 <li class = 'homelist'>
-                    <a href = '/bonelli/bonelli.html'><img src = '/images/bonelli-logo.png' title = 'Sergio Bonelli Editore' height = '60' /></a>
+                    <a href = '/bonelli/bonelli.php'><img src = '/images/bonelli-logo.png' title = 'Sergio Bonelli Editore' height = '60' /></a>
                 </li>
             </ul>
             <p>
