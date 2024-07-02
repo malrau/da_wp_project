@@ -73,7 +73,6 @@
             }
             */
         ?>
-        <section id = 'products'>
             <script>
                 let productsArray = <?php echo json_encode($products); ?>;
                 productsSection = document.querySelector('#products');

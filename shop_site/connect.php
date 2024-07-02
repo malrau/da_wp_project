@@ -35,8 +35,14 @@
 		echo "<a href = '../[T]myShop.html'><button>Back to the main page</button></a>";
 		exit;
 	} else {
-		echo "<h4>Successfully connected to MySQL</h4>";
+		echo "<section id = 'products'>";
+                if ($_SERVER['SCRIPT_FILENAME'] == '/var/www/html/marvel/marvel.php') {
+                    echo "<h3>Marvel Comics</h3>";
+                } elseif ($_SERVER['SCRIPT_FILENAME'] == '/var/www/html/dc/dc.php') {
+                    echo "<h3>DC Comics</h3>";
+                } elseif ($_SERVER['SCRIPT_FILENAME'] == '/var/www/html/bonelli/bonelli.php') {
+                    echo "<h3>Sergio Bonelli Editore</h3>";
+                }
 	}
 
-	echo "<br>";
 ?>
