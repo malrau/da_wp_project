@@ -47,7 +47,7 @@
 	    include('../connect.php');
 	    
             // query the database to retrieve comic books information
-            $sql = "SELECT S.seriesName, C.datePublished, C.issueNumber, C.coverTitle, C.nrPages, C.price, C.description, C.coverFolder, W.firstName, W.lastName, D.firstName, D.lastName FROM comicBook AS C, publishing AS P, publisher AS R, belonging AS B, series AS S, authoring AS A, writer AS W, artist AS D WHERE C.cbID = B.comicBook AND B.series = S.seriesName AND S.seriesName = P.series AND P.publisher = R.publisherName AND C.cbID = A.comicBook AND A.writer = W.writerID AND A.artist = D.artistID AND R.publisherName = 'DC comics';";
+            $sql = "SELECT S.seriesName, C.cbID, C.datePublished, C.issueNumber, C.coverTitle, C.nrPages, C.price, C.description, C.coverFolder, W.firstName, W.lastName, D.firstName, D.lastName FROM comicBook AS C, publishing AS P, publisher AS R, belonging AS B, series AS S, authoring AS A, writer AS W, artist AS D WHERE C.cbID = B.comicBook AND B.series = S.seriesName AND S.seriesName = P.series AND P.publisher = R.publisherName AND C.cbID = A.comicBook AND A.writer = W.writerID AND A.artist = D.artistID AND R.publisherName = 'DC comics';";
 	    $result = mysqli_query($conn, $sql);
             
             // fetch the data from the result set and put them into an array of arrays
@@ -77,7 +77,7 @@
                 let productsArray = <?php echo json_encode($products); ?>;
                 productsSection = document.querySelector('#products');
                 for(let i = 0; i < productsArray.length; i++) {
-                    let product = new comicBookSmallCard(productsArray[i]['seriesName'], productsArray[i]['datePublished'], productsArray[i]['issueNumber'], productsArray[i]['coverTitle'], productsArray[i]['price'], productsArray[i]['coverFolder']);
+                    let product = new comicBookSmallCard(productsArray[i]['cbID'], productsArray[i]['seriesName'], productsArray[i]['datePublished'], productsArray[i]['issueNumber'], productsArray[i]['coverTitle'], productsArray[i]['price'], productsArray[i]['coverFolder']);
                     productsSection.appendChild(product.makeElement());
                 }
             </script>

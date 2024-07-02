@@ -6,8 +6,9 @@
 /* ************************************** */
 /* ************************************** */
 
-function comicBookSmallCard(seriesName, datePublished, issueNumber,
+function comicBookSmallCard(cbID, seriesName, datePublished, issueNumber,
                             coverTitle, price, coverFolder) {
+                                this.id = cbID;
                                 this.series = seriesName;
                                 this.date = datePublished;
                                 this.number = issueNumber;
@@ -22,11 +23,12 @@ comicBookSmallCard.prototype.makeElement = function() {
 
     // section
     let card = document.createElement('div');
+    card.id = this.id;
     card.className = 'list_cb';
     
     // image child (contains cover image and link to comic book details)
     let cardImgAnchor = document.createElement('a');
-    cardImgAnchor.href = 'comics/comic_book.html';
+    cardImgAnchor.href = 'comics/comic_book.php';
     let cardImg = document.createElement('img');
     cardImg.src = 'covers/' + this.series + '/' + this.fileName;
     cardImg.className = 'list_thumbnail';
@@ -36,12 +38,12 @@ comicBookSmallCard.prototype.makeElement = function() {
     let cardPMain = document.createElement('p');
     cardPMain.className = 'list_title';
     let cardPAnchor = document.createElement('a');
-    cardPAnchor.href = 'comics/comic_book.html';
+    cardPAnchor.href = 'comics/comic_book.php';
     let cardPAnchorTitle = document.createTextNode(this.series + ' #' + this.number + ' - ' + this.title);
     cardPAnchor.appendChild(cardPAnchorTitle);
     let cardPInfo = document.createElement('p');
     cardPInfo.className = 'list_info';
-    let cardPDate = document.createTextNode(this.date);
+    let cardPDate = document.createTextNode('Published: ' + this.date);
     let cardPPrice = document.createTextNode('€ ' + this.price);
     cardPInfo.appendChild(cardPDate);
     cardPInfo.appendChild(br);
