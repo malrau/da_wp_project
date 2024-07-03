@@ -28,7 +28,7 @@ comicBookSmallCard.prototype.makeElement = function() {
     
     // image child (contains cover image and link to comic book details)
     let cardImgAnchor = document.createElement('a');
-    cardImgAnchor.href = 'comics/comic_book.php';
+    cardImgAnchor.href = 'comics/comic_book.php?id=' + this.id + '&series=' + this.series + '&coverTitle=' + this.title;
     let cardImg = document.createElement('img');
     cardImg.src = 'covers/' + this.series + '/' + this.fileName;
     cardImg.className = 'list_thumbnail';
@@ -38,7 +38,7 @@ comicBookSmallCard.prototype.makeElement = function() {
     let cardPMain = document.createElement('p');
     cardPMain.className = 'list_title';
     let cardPAnchor = document.createElement('a');
-    cardPAnchor.href = 'comics/comic_book.php';
+    cardPAnchor.href = 'comics/comic_book.php?id=' + this.id + '&series=' + this.series + '&coverTitle=' + this.title;
     let cardPAnchorTitle = document.createTextNode(this.series + ' #' + this.number + ' - ' + this.title);
     cardPAnchor.appendChild(cardPAnchorTitle);
     let cardPInfo = document.createElement('p');
