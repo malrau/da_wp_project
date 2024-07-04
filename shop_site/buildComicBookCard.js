@@ -23,52 +23,63 @@ function comicBookCard(seriesName, datePublished, issueNumber,
                            this.artistLastName = artistLastName;
 }
 comicBookCard.prototype.makeElement = function() {
-    // general purpose <br> tag
+    // general purpose <br> and <p> tags
     let br = document.createElement('br');
+    let p = document.createElement('p');
 
     // section
-    let cardSection = document.createElement('section');
-    cardSection.class = 'marvelcb';
+    let cardSection = document.createElement('div');
+    cardSection.className = 'marvelcb';
     
     // image child (contains cover image)
     let cardImg = document.createElement('img');
     cardImg.src = this.folder;
-    cardImg.class = 'cbimg';
+    cardImg.className = 'cbimg';
     
     // h2 child (contains series and title)
-    let cardH2 = document.createElement('h2');
-    cardH2.class = 'cbtitle';
-    let cardH2Series = document.createTextNode(this.series);
-    let cardH2Title = document.createTextNode(this.number + this.title);
-    cardH2.appendChild(cardH2Series);
-    cardH2.appendChild(br);
-    cardH2.appendChild(cardH2Title);
+    let cardH3 = document.createElement('h3');
+    cardH3.className = 'cbtitle';
+    let cardPSeries = document.createElement('p');
+    let cardH3Series = document.createTextNode(this.series + ' - ' + this.number);
+    cardPSeries.appendChild(cardH3Series);
+    let cardPTitle = document.createElement('p');
+    let cardH3Title = document.createTextNode(this.title);
+    cardPTitle.appendChild(cardH3Title);
+    cardH3.appendChild(cardPSeries);
+    cardH3.appendChild(br);
+    cardH3.appendChild(cardPTitle);
     
     // h3 child (contains date, pages and price)
-    let cardH3 = document.createElement('h3');
-    let cardH3Date = document.createTextNode('Published: ' + this.date);
-    let cardH3Pages = document.createTextNode('Pages: ' + this.pages);
-    let cardH3Price = document.createTextNode('Price: ' + this.price);
-    cardH3.appendChild(cardH3Date);
-    cardH3.appendChild(br);
-    cardH3.appendChild(cardH3Pages);
-    cardH3.appendChild(br);
-    cardH3.appendChild(cardH3Price);
-    cardH3.appendChild(br);
-    cardH3.appendChild(br);
-    cardH3.appendChild(br);
+    let cardH4 = document.createElement('h4');
+    let cardPDate = document.createElement('p');
+    let cardH4Date = document.createTextNode('Published: ' + this.date);
+    cardPDate.appendChild(cardH4Date);
+    let cardPPages = document.createElement('p');
+    let cardH4Pages = document.createTextNode('Pages: ' + this.pages);
+    cardPPages.appendChild(cardH4Pages);
+    let cardPPrice = document.createElement('p');
+    let cardH4Price = document.createTextNode('Price: ' + this.price);
+    cardPPrice.appendChild(cardH4Price);
+    cardH4.appendChild(cardPDate);
+    cardH4.appendChild(br);
+    cardH4.appendChild(cardPPages);
+    cardH4.appendChild(br);
+    cardH4.appendChild(cardPPrice);
+    cardH4.appendChild(br);
+    cardH4.appendChild(br);
+    cardH4.appendChild(br);
     
     // div child (contains description)
     let cardDescriptionDiv = document.createElement('div');
-    cardDescriptionDiv.class = 'cbdes';
+    cardDescriptionDiv.className = 'cbdes';
     let cardDescription = document.createTextNode(this.description);
     cardDescriptionDiv.appendChild(cardDescription);
     cardDescriptionDiv.appendChild(br);
     
     // div child (contains authors)
     let cardAuthorsDiv = document.createElement('div');
-    let cardWriter = document.createTextNode('Story: ' + writerFirstName + ' ' + writerLastName);
-    let cardArtist = document.createTextNode('Drawings: ' + artistFirstName + ' ' + artistLastName);
+    let cardWriter = document.createTextNode('Story: ' + this.writerFirstName + ' ' + this.writerLastName);
+    let cardArtist = document.createTextNode('Drawings: ' + this.artistFirstName + ' ' + this.artistLastName);
     cardAuthorsDiv.appendChild(cardWriter);
     cardAuthorsDiv.appendChild(br);
     cardAuthorsDiv.appendChild(cardArtist);
@@ -76,7 +87,7 @@ comicBookCard.prototype.makeElement = function() {
 
     // div child (contains navigation buttons)
     let cardNavigationDiv = document.createElement('div');
-    cardNavigationDiv.class = 'navigation';
+    cardNavigationDiv.className = 'navigation';
     let cardBackA = document.createElement('a');
     cardBackA.src = '../marvel.html';
     let cardBackText = document.createTextNode('Back to the Marvel Comics page');
@@ -90,9 +101,16 @@ comicBookCard.prototype.makeElement = function() {
     
     // append all elements to the card section
     cardSection.appendChild(cardImg);
-    cardSection.appendChild(cardH2);
     cardSection.appendChild(cardH3);
+    cardSection.appendChild(cardH4);
     cardSection.appendChild(cardDescriptionDiv);
     cardSection.appendChild(cardAuthorsDiv);
     cardSection.appendChild(cardNavigationDiv);
+    
+    return cardSection;
 };
+
+document.addEventListener('DOMContentLoaded', function () {
+    let productsSection = document.querySelector('#products');
+    productsSection.id = 'product';
+    });
