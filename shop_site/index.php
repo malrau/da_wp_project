@@ -7,13 +7,14 @@
         <meta name = "viewport" content = "width = device-width, initial-scale = 1">
         <link rel = 'stylesheet' href = 'shopStyle.css' />
         <link rel = 'stylesheet' href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' />
+        <script type = 'text/javascript' src = '/buildBestSellerSmallCard.js'></script>
         <!script type = 'text/javascript' src = 'shopScript.js'/script-->
     </head>
 
     <body id = 'home'>
         <header>
             <div id = 'left'>
-                <h1><a href = 'index.html'>Comic books'r us</a></h1>
+                <h1><a href = 'index.php'>Comic books'r us</a></h1>
                 <h3>
                     The best place to buy comic books from the top comic book
                     publishers such as American Marvel and DC Comics or Italian Sergio 
@@ -41,48 +42,28 @@
                 </li>
             </ul>
         </nav>
-        <section id = 'products'>
-            <h3>Best sellers</h3>
-            <div class = 'bestsellers'>
-                <a href = 'dc/comics/vforv.html'>
-                    <img src = 'dc/comics/images/vforvendetta.jpg' class = 'thumbnail' />
-                </a>
-                <p class = 'best_des'>
-                    Publisher: DC Comics
-                    <br />
-                    Price: $ 16.00
-                </p>
-            </div>
-            <div class = 'bestsellers'>
-                <a href = 'dc/comics/batman.html'>
-                    <img src = 'dc/comics/images/batman.jpg' class = 'thumbnail' />
-                </a>
-                <p class = 'best_des'>
-                    Publisher: DC Comics
-                    <br />
-                    Price: $ 14.00
-                </p>
-            </div>
-            <div class = 'bestsellers'>
-                <a href = 'bonelli/comics/zagor.html'>
-                    <img src = 'bonelli/comics/images/zagor.jpg' class = 'thumbnail' />
-                </a>
-                <p class = 'best_des'>
-                    Publisher: Sergio Bonelli Editore
-                    <br />
-                    Price: $ 24.00
-                </p>
-            </div>
-            <div class = 'bestsellers'>
-                <a href = 'marvel/comics/spider-man.html'>
-                    <img src = 'marvel/comics/images/spider-man.jpg' class = 'thumbnail' />
-                </a>
-                <p class = 'best_des'>
-                    Publisher: Marvel Comics
-                    <br />
-                    Price: $ 15.00
-                </p>
-            </div>
+        <?php
+            include('connect.php');
+            /* create a view which acts as an inner query for the following query.
+            In fact the view is used as a table related to the other ones in the query */
+            $sqlView = "CREATE OR REPLACE VIEW innerQuery AS SELECT C.cbID, COUNT(*) AS count FROM comicBook AS C, buying AS B, transaction AS T WHERE c.cbID = B.comicBook AND T.transactionID = B.transaction GROUP BY C.cbID;";
+            $sql = "SELECT R.publisherName, S.seriesName, C.cbID, C.datePublished, C.issueNumber, C.coverTitle, C.price, C.coverFolder, I.count FROM series AS S, comicBook AS C, belonging AS B, publisher AS R, publishing AS P, innerQuery AS I WHERE C.cbID = B.comicBook AND S.seriesName = B.series AND S.seriesName = P.series AND P.publisher = R.publisherName AND C.cbID = I.cbID ORDER BY I.count DESC;";
+            $createView = mysqli_query($conn, $sqlView);
+            $result = mysqli_query($conn, $sql);
+            
+            $bestSellers = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $bestSellers[] = $row;
+            }
+        ?>
+            <script>
+                let bestSellersArray = <?php echo json_encode($bestSellers); ?>;
+                productsSection = document.querySelector('#products');
+                for(let i = 0; i < 8; i++) {
+                    let product = new comicBookSmallCard(bestSellersArray[i]['publisherName'], bestSellersArray[i]['seriesName'], bestSellersArray[i]['cbID'], bestSellersArray[i]['datePublished'], bestSellersArray[i]['issueNumber'], bestSellersArray[i]['coverTitle'], bestSellersArray[i]['price'], bestSellersArray[i]['coverFolder']);
+                    productsSection.appendChild(product.makeElement());
+                }
+            </script>
         </section>
         <footer title = 'contactus'>
             <h3>For any info:</h3>
