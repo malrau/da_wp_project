@@ -12,7 +12,7 @@
     <body>
         <header>
             <div id = 'left'>
-                <h1><a href = '/index.html'>Comic books'r us</a></h1>
+                <h1><a href = '/index.php'>Comic books'r us</a></h1>
                 <h3>
                     The best place to buy comic books from the top comic book
                     publishers such as American Marvel and DC Comics or Italian Sergio 
@@ -40,7 +40,7 @@
                 </li>
             </ul>
             <p>
-                <a href = '/index.html' class = 'back_home_button btn btn-outline-primary'>Back home</a>
+                <a href = '/index.php' class = 'back_home_button btn btn-outline-primary'>Back home</a>
             </p>
         </nav>
 	<?php
