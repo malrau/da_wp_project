@@ -5,10 +5,11 @@
 /* ************************************** */
 /* ************************************** */
 
-function comicBookCard(seriesName, datePublished, issueNumber,
-                       coverTitle, nrPages, price, description,
-                       coverFolder, writerFirstName, writerLastName,
-                       artistFirstName, artistLastName) {
+function comicBookCard(publisherName, seriesName, datePublished,
+                       issueNumber, coverTitle, nrPages, price,
+                       description, coverFolder, writerFirstName,
+                       writerLastName, artistFirstName, artistLastName) {
+                           this.publisher = publisherName;
                            this.series = seriesName;
                            this.date = datePublished;
                            this.number = issueNumber;
@@ -16,7 +17,7 @@ function comicBookCard(seriesName, datePublished, issueNumber,
                            this.pages = nrPages;
                            this.price = price;
                            this.description = description;
-                           this.folder = coverFolder;
+                           this.fileName = coverFolder;
                            this.writerFirstName = writerFirstName;
                            this.writerLastName = writerLastName;
                            this.artistFirstName = artistFirstName;
@@ -33,8 +34,14 @@ comicBookCard.prototype.makeElement = function() {
     
     // image child (contains cover image)
     let cardImg = document.createElement('img');
-    cardImg.src = this.folder;
     cardImg.className = 'cbimg';
+    if (this.publisher == 'Marvel Comics') {
+        cardImg.src = '/marvel/covers/' + this.series + '/' + this.fileName;
+    } else if (this.publisher == 'DC Comics') {
+        cardImg.src = '/dc/covers/' + this.series + '/' + this.fileName;
+    } else if (this.publisher == 'Sergio Bonelli Editore') {
+        cardImg.src = '/bonelli/covers/' + this.series + '/' + this.fileName;
+    }
     
     // h2 child (contains series and title)
     let cardH3 = document.createElement('h3');

@@ -2,6 +2,9 @@
 <html>
     <head>
         <?php
+        echo "<a href '../'></a>";
+        //$_SERVER['SCRIPT_FILENAME'];
+        //echo $pub;
         $series = $_GET['series'];
         $title = $_GET['coverTitle'];
         echo "<title>" . $series . ' - ' . $title . "</title>";
@@ -33,7 +36,7 @@
         <?php
             include('../../connect.php');
             $cbID = $_GET['id'];
-            $sql = "SELECT S.seriesName, C.datePublished, C.issueNumber, C.coverTitle, C.nrPages, C.price, C.description, C.coverFolder, W.firstName, W.lastName, D.firstName, D.lastName FROM comicBook AS C, publishing AS P, publisher AS R, belonging AS B, series AS S, authoring AS A, writer AS W, artist AS D WHERE C.cbID = B.comicBook AND B.series = S.seriesName AND S.seriesName = P.series AND P.publisher = R.publisherName AND C.cbID = A.comicBook AND A.writer = W.writerID AND A.artist = D.artistID AND C.cbID = $cbID;";
+            $sql = "SELECT R.publisherName, S.seriesName, C.datePublished, C.issueNumber, C.coverTitle, C.nrPages, C.price, C.description, C.coverFolder, W.firstName, W.lastName, D.firstName, D.lastName FROM comicBook AS C, publishing AS P, publisher AS R, belonging AS B, series AS S, authoring AS A, writer AS W, artist AS D WHERE C.cbID = B.comicBook AND B.series = S.seriesName AND S.seriesName = P.series AND P.publisher = R.publisherName AND C.cbID = A.comicBook AND A.writer = W.writerID AND A.artist = D.artistID AND C.cbID = $cbID;";
             $result = mysqli_query($conn, $sql);
             $products = array();
             while ($row = mysqli_fetch_assoc($result)) {
@@ -44,7 +47,7 @@
             productsArray = <?php echo json_encode($products); ?>;
             productsSection = document.querySelector('#products');
             for (let i = 0; i < productsArray.length; i++) {
-                let product = new comicBookCard(productsArray[i]['seriesName'], productsArray[i]['datePublished'], productsArray[i]['issueNumber'], productsArray[i]['coverTitle'], productsArray[i]['nrPages'], productsArray[i]['price'], productsArray[i]['description'], productsArray[i]['coverFolder'], productsArray[i]['writerFirstName'], productsArray[i]['writerLastName'], productsArray[i]['artistFirstName'], productsArray[i]['artistLastName']);
+                let product = new comicBookCard(productsArray[i]['publisherName'], productsArray[i]['seriesName'], productsArray[i]['datePublished'], productsArray[i]['issueNumber'], productsArray[i]['coverTitle'], productsArray[i]['nrPages'], productsArray[i]['price'], productsArray[i]['description'], productsArray[i]['coverFolder'], productsArray[i]['writerFirstName'], productsArray[i]['writerLastName'], productsArray[i]['artistFirstName'], productsArray[i]['artistLastName']);
                 productsSection.appendChild(product.makeElement());
             }
         </script>
