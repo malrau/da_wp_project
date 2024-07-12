@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-07-12T15:42:22.433Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.6.1 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="UBOhkp06jlnzu-sfd9lC" version="24.6.1" type="device">
+<mxfile host="Electron" modified="2024-07-12T15:49:58.532Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.6.1 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="6gui7NNxsAPH-YmTe5uO" version="24.6.1" type="device">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="1790" dy="-522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="1790" dy="-525" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -114,11 +114,11 @@
         <mxCell id="qnkbcpYswVgYUXXukxZf-91" value="password" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="-51.5" y="1659" width="70" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="qnkbcpYswVgYUXXukxZf-93" value="&lt;p style=&quot;line-height: 140%;&quot;&gt;USERDATA(&lt;u&gt;userID&lt;/u&gt;, firstName, lastName, address, email, pwd,&amp;nbsp;lastLogin)&lt;br&gt;USERROLE(&lt;u&gt;roleID&lt;/u&gt;, roleName, description)&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;ESTABLISHING(&lt;u&gt;aUser&lt;/u&gt;, &lt;u&gt;userRole&lt;/u&gt;, dateRegistered)&lt;br&gt;PERMISSION(&lt;u&gt;permissionID&lt;/u&gt;, permissionName, description)&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;GIVING(&lt;u&gt;role&lt;/u&gt;, &lt;u&gt;permission&lt;/u&gt;)&lt;br&gt;&lt;/p&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="-424" y="1990" width="480" height="140" as="geometry" />
+        <mxCell id="qnkbcpYswVgYUXXukxZf-93" value="&lt;p style=&quot;line-height: 140%;&quot;&gt;USERDATA(&lt;u&gt;userID&lt;/u&gt;, firstName, lastName, address, email, pwd,&amp;nbsp;lastLogin)&lt;br&gt;USERROLE(&lt;u&gt;roleID&lt;/u&gt;, roleName, description)&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;ESTABLISHING(&lt;u&gt;aUser&lt;/u&gt;, &lt;u&gt;aUserRole&lt;/u&gt;, dateRegistered)&lt;br&gt;PERMISSION(&lt;u&gt;permissionID&lt;/u&gt;, permissionName, description)&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;GIVING(&lt;u&gt;aUserRole&lt;/u&gt;, &lt;u&gt;aPermission&lt;/u&gt;)&lt;br&gt;&lt;/p&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="-424" y="1940" width="480" height="140" as="geometry" />
         </mxCell>
         <mxCell id="qnkbcpYswVgYUXXukxZf-94" value="&lt;b&gt;RELATIONAL SCHEMA&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;" parent="1" vertex="1">
-          <mxGeometry x="-279" y="1970" width="180" height="30" as="geometry" />
+          <mxGeometry x="-279" y="1920" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="qnkbcpYswVgYUXXukxZf-109" value="userID" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="-301.5" y="1554" width="60" height="30" as="geometry" />
