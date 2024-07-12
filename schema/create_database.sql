@@ -92,6 +92,7 @@ CREATE TABLE authoring(
 
 CREATE TABLE transaction(
 	transactionID INT AUTO_INCREMENT,
+	aUser INT,
 	PRIMARY KEY(transactionID)
 	);
 
