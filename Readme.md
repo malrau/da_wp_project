@@ -7,10 +7,20 @@ Use of HTML, CSS and JavaScript is also mandatory.
 </p>
 <p>
 One of the project possibilities is the implementation of a web portal (or mobile application) to buy and sell products. I'll focus on this and specifically on a portal for selling and buying comic books.
-The data are stored in a relational database containing 5 entities providing information about the products (the actual comic book sold, the series to which it belongs, the editor that publishes it and the authors (writer and artist) and 3 relationships connecting them. One more entity is dedicated to store data about the transactions (the action of buying a comic book), which is connected to the comic book entity by means of the <i>buying</i> relationship.<br>
+</p>
+<p>
+<h3>Main database</h3>
+The data are stored in a relational database containing 5 entities providing information about the products (the actual comic book sold, the series to which it belongs, the editor that publishes it and the authors (writer and artist) and 3 relationships connecting them. One more entity is dedicated to store data about the transactions (the action of buying a comic book), which is connected to the comic book entity by means of the <i>buying</i> relationship.
+</br>
 Here is the representation of the conceptual and relational schemas:
 <img src = 'https://github.com/malrau/da_wp_project/blob/main/schema/e-r_model.png' />
 </p>
+<p>
+<h3>User management database</h3>
+User data are stored in a different database. It contains three entities and two relationships linking them. The entities are the user with relevant user data, the user's role and the permission associated with the role. For simplification, I only set up two user roles: <i>administrator</i>, which can make changes to the products database (add, remove or update products), <i>customer</i>, which can buy products. Permissions are primarily operated by only allowing administrators to be directed to the page designed to interact with the products database. Some form of database user management is better be implemented as well.
+</br>
+Here is the representation of the conceptual and relational schemas:
+<img src = 'https://github.com/malrau/da_wp_project/blob/main/schema/e-r_model_users.png' /></p>
 <p>
 The web site has a main page with a simple structure. I keep the <i>head</i> and <i>body</i> elements: the head stores the references to the stylesheets used to set the style properties and improve the presentation of the markup elements and to the scripts used to perform various types of client-side tasks. The content of the web page is in the body, which has four main elements:
 <ul>
