@@ -26,7 +26,7 @@ CREATE TABLE establishing(
 	aUser INT,
 	aUserRole INT,
 	dateRegistered DATE,
-	PRIMARY KEY(aUser, userRole),
+	PRIMARY KEY(aUser, aUserRole),
 	FOREIGN KEY(aUser)
 		REFERENCES userData(userID)
 		ON DELETE no action
