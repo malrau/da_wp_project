@@ -41,6 +41,9 @@
                     <a href = 'bonelli/bonelli.php' id = 'bonelli_page'><img src = 'images/bonelli-logo.png' title = 'Sergio Bonelli Editore' height = '60' /></a>
                 </li>
             </ul>
+            <p>
+                <a href = '/register.html' class = 'back_home_button btn btn-outline-primary'>Register / Login</a>
+            </p>
         </nav>
         <?php
             include('connect.php');
