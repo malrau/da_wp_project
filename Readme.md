@@ -10,7 +10,7 @@ One of the project possibilities is the implementation of a web portal (or mobil
 </p>
 <p>
 <h3>Main database</h3>
-The data are stored in a relational database containing 5 entities providing information about the products (the actual comic book sold, the series to which it belongs, the editor that publishes it and the authors (writer and artist) and 3 relationships connecting them. One more entity is dedicated to store data about the transactions (the action of buying a comic book), which is connected to the comic book entity by means of the <i>buying</i> relationship.
+The data are stored in a relational database containing 5 entities providing information about the products (the actual comic book sold, the series to which it belongs, the editor that publishes it and the authors (writer and artist) and 3 relationships connecting them. One more entity is dedicated to store data about the transactions (the action of buying a comic book), which is connected to the comic book entity by means of the <i>buying</i> relationship. In a more recent version of the project, I altered the <i>transaction</i> entity by adding one attribute to it. The attribute name is <i>aUser</i>, which corresponds to the ID of the user who has made the transaction. This information is not internal to the products database, in fact it comes from the user management database and it can be used to retrieve information about the user by querying that database separately from the products database.
 </br>
 Here is the representation of the conceptual and relational schemas:
 <img src = 'https://github.com/malrau/da_wp_project/blob/main/schema/e-r_model.png' />
