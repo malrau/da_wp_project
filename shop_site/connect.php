@@ -32,7 +32,7 @@
 	if(!$conn) {
 		echo "<h4>Cannot connect to MySQL: </h4>" . mysqli_connect_error();
 		echo "</br></br>";
-		echo "<a href = '../[T]myShop.html'><button>Back to the main page</button></a>";
+		echo "<a href = '../index.php'><button>Back to the main page</button></a>";
 		exit;
 	} else {
 		echo "<section id = 'products'>";
