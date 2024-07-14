@@ -44,9 +44,9 @@ CREATE TABLE permission(
 	permissionID INT,
 	permissionName VARCHAR(16),
 	description VARCHAR(128),
-	PRIMARY KEY(permissionID)
+	PRIMARY KEY(permissionID),
 	UNIQUE(permissionName),
-	UNIQUE (description)
+	UNIQUE(description)
 	);
 
 CREATE TABLE giving(
