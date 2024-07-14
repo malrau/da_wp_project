@@ -41,7 +41,7 @@ CREATE TABLE establishing(
 	);
 
 CREATE TABLE permission(
-	permissionID INT,
+	permissionID INT AUTO_INCREMENT,
 	permissionName ENUM('make_changes', 'buy') NOT NULL,
 	description VARCHAR(128),
 	PRIMARY KEY(permissionID),
