@@ -387,6 +387,9 @@ form#login>p {
     width: 15em;
     float: left;
 }
+section>form>h3>i {
+    font-size: 18px;
+}
 section>p {
     position: relative;
     margin-left: 2em;
