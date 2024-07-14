@@ -17,11 +17,24 @@ Here is the representation of the conceptual and relational schemas:
 </p>
 <p>
 <h3>User management database</h3>
-User data are stored in a different database. It contains three entities and two relationships linking them. The entities are the user with relevant user data, the user's role and the permission associated with the role. For simplification, I only set up two user roles: <i>administrator</i>, which can make changes to the products database (add, remove or update products), <i>customer</i>, which can buy products. Permissions are primarily operated by only allowing administrators to be directed to the page designed to interact with the products database. Some form of database user management is better be implemented as well.
+User data are stored in a different database. It contains three entities and two relationships linking them. The entities are the user with relevant user data, the user's role and the permission associated with the role. For simplification, I only set up two user roles: <i>administrator</i>, which can make changes to the products database (add, remove or update products), <i>customer</i>, which can buy products. Roles are set up from the backend, it is not possible to create or manage roles via some web interface. Permissions are primarily operated by only allowing administrators to be directed to the page designed to interact with the products database. 
+</br>
+The only way to create role types (and permissions as well) is by direct interaction with the comicsShopUsers MySQL database, with INSERT queries like the following:
+<ul>
+<li>INSERT INTO userRole(roleName, description) VALUES('admin', 'Can perform INSERT, DELETE and UPDATE actions on the products database');</i>
+<li>INSERT INTO userRole(roleName, description) VALUES('customer', 'Can buy products: action only affects the transaction table of the products database');</li>
+<li>INSERT INTO permission(permissionName, description) VALUES('make_changes', 'Can perform INSERT, DELETE and UPDATE actions on the products database');</li>
+<li>INSERT INTO permission(permissionName, description) VALUES('buy', 'Can buy products: action only affects the transaction table of the products database');</li>
+</ul>
+From a practical point of view, with the current implementation the <i>customer</i> user role is associated exclusively with the <i>buy</i> permission and the <i>admin</i> user role is exclusively associated with the <i>make_changes</i> permission, so it would not be necessary to have to tables, and permissions could simply be attributes of the userRole table or, even more, the roleName attribute would be sufficient to determine the associated permissions. However, in principle, while each userRole can determine one and only one permission, one permission could be associated to more than one role. This is not implemented, however, at this stage.
+</br>
+Some form of database user management is better be implemented as well.
 </br>
 Here is the representation of the conceptual and relational schemas:
 <img src = 'https://github.com/malrau/da_wp_project/blob/main/schema/e-r_model_users.png' /></p>
 <p>
+</br>
+<h3>Structure of the web site</h3>
 The web site has a main page with a simple structure. I keep the <i>head</i> and <i>body</i> elements: the head stores the references to the stylesheets used to set the style properties and improve the presentation of the markup elements and to the scripts used to perform various types of client-side tasks. The content of the web page is in the body, which has four main elements:
 <ul>
 <li>a header, placed on top of the page, containing the store logo and distinctive images;</li>
@@ -30,6 +43,7 @@ The web site has a main page with a simple structure. I keep the <i>head</i> and
 <li>a footer containing information about the web site and referencing a page for requesting help.</li>
 </ul>
 This layout is entirely replicated in the publishers' pages, where the central section element shows the entire publisher's catalogue. Each comic book of the catalogue is displayed in the form of a small rectangular card which shows the cover as a thumbnail image, the series name, the issue number, the title, the date of publication and the price. By clicking on the title or image one is redirected to a page entirely dedicated to the selected comic book. This page keeps the site header and footer, but it has no navigation panel and the central section is designed differently with respect to the publishers' and main page sections. The different behaviour is toggled by its different class name (the class name of the home and publishers' pages is <i>products</i>, the classname of the comic book page is <i>product</i>). In this section the comic book cover appears as a larger image and, in addition to the information contained in the publisher's page, a description of the story, the number of pages and the authors are present. Moreover, this is the page from where the comic book can be bought.
+The site also has a register/login functionality to help manage state and perform actions such as buying and adding/removing/updating products. The <i>register.html</i> page has two forms, one for registration, one for login, if already registered. The first form allows inserting user data and profile into the user management database (this form only allows for the creation of customer roles, while administrator roles need interaction through the database API), the second one checks if the user is already present in the database and allows the creation of cookies that keep track of the buying process. The registration process forces the association of the new user to the <i>customer</i> user role with <i>buy</i> permissions. In fact the query that inserts the user ID into the establishing table hard codes roleID = 2, which is then associated to permission = 2 (permission to buy).
 </p>
 </br>
 <h3>Server-side interactions</h3>
