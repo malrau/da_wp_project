@@ -18,7 +18,7 @@ CREATE TABLE userData(
 
 CREATE TABLE userRole(
 	roleID INT AUTO_INCREMENT,
-	roleName VARCHAR(16),
+	roleName ENUM('admin', 'customer') NOT NULL,
 	description VARCHAR(128),
 	PRIMARY KEY(roleID),
 	UNIQUE(roleName),
@@ -42,7 +42,7 @@ CREATE TABLE establishing(
 
 CREATE TABLE permission(
 	permissionID INT,
-	permissionName VARCHAR(16),
+	permissionName ENUM('make_changes', 'buy') NOT NULL,
 	description VARCHAR(128),
 	PRIMARY KEY(permissionID),
 	UNIQUE(permissionName),
