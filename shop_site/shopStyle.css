@@ -327,7 +327,7 @@ section#register_form {
     margin-left: 18em;
     margin-right: 1em;
     padding: 0.5em;
-    font-family: Georgia, serif;
+    font-family: sans-serif;
     border: black;
     border-style: double;
     background-color: rgba(255, 248, 231, 1);
@@ -336,7 +336,7 @@ section#register_form {
     background-repeat: no-repeat;
     background-position: center;
 }
-#registration {
+form#registration {
     width: 40em;
     height: 30em;
     font-size: 0.8em;
@@ -349,19 +349,21 @@ section#register_form {
     padding-right: 1em;
     float: left;
     border: solid;
-    border-color: blueviolet;
+    border-width: thin;
+    border-color: rgba(211, 211, 211, 1);
 }
-#registration h3 {
+form#registration>h3 {
     font-size: 1em;
     font-weight: bold;
+    color: rgba(95, 85, 65, 1);
 }
-#registration p {
+form#registration>p {
     width: 15em;
     float: left;
 }
 
-#login {
-    width: 20em;
+form#login {
+    width: 30em;
     height: 30em;
     font-size: 0.8em;
     font-weight: normal;
@@ -373,13 +375,19 @@ section#register_form {
     padding-right: 1em;
     float: left;
     border: solid;
-    border-color: yellowgreen;
+    border-width: thin;
+    border-color: rgba(211, 211, 211, 1);
 }
-#login h3 {
+form#login>h3 {
     font-size: 1em;
     font-weight: bold;
+    color: rgba(95, 85, 65, 1);
 }
-#login p {
+form#login>p {
     width: 15em;
     float: left;
+}
+section>p {
+    position: relative;
+    margin-left: 2em;
 }

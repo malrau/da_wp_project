@@ -41,55 +41,45 @@
             </p>
         </nav>
         <section id = 'register_form'>
-            <form>
-                <div id = 'registration'>
-                    <h3>If you are new to this site, fill in this form</h3>
-                    <p>
-                        <label>first name</label>
-                        <br>
-                        <input type = 'text' name = 'firstName'/>
-                        <br><br>
-                        <label>last name</label>
-                        <br>
-                        <input type = 'text' name = 'lastName'/>
-                        <br><br>
-                        <label>address</label>
-                        <br>
-                        <input type = 'text' name = 'nationality'/>
+            <h3>Registration</h3>
+            <form id = 'registration'>
+                <h3>If you are new to this site, fill in this form:</h3>
+                </br>
+                <div class = 'row'>
+                    <p class = 'col'>
+                        <input type = 'text' name = 'firstName' placeholder = 'first name' class = 'form-control'/>
+                        </br></br>
+                        <input type = 'text' name = 'lastName' placeholder = 'last name' class = 'form-control'/>
+                        </br></br>
+                        <input type = 'text' name = 'address' placeholder = 'address' class = 'form-control'/>
                     </p>
-                    <p>
-                        <label>email (your email is used to login)</label>
-                        <br>
-                        <input type = 'email' name = 'userEmail'/>
-                        <br><br>
-                        <label>confirm email</label>
-                        <br>
-                        <input type = 'email' name = 'confirmEmail'/>
-                        <br><br>
-                        <label>password</label>
-                        <br>
-                        <input type = 'password' name = 'userEmail'/>
-                    </p>
-                    <p>
-                        <input type = 'submit' value = 'register' />
+                    <p class = 'col'>
+                        <input type = 'email' name = 'userEmail' placeholder = 'email' class = 'form-control'/>
+                        </br></br>
+                        <input type = 'email' name = 'confirmEmail' placeholder = 'confirm email' class = 'form-control'/>
+                        </br></br>
+                        <input type = 'password' name = 'password' placeholder = 'password' class = 'form-control'/>
                     </p>
                 </div>
-                <div id = 'login'>
-                    <h3>If you are already registered, login</h3>
-                    <p>
-                        <label>username&nbsp;&nbsp;</label>
-                        </br>
-                        <input type = 'text' name = 'userName'/>
-                    </p>
-                    <p>
-                        <label>password&nbsp;</label>
-                        </br>
-                        <input type = 'password' name = 'userPassword'/>
-                    </p>
-                </div>
+                <p>
+                    <input type = 'submit' value = 'register' class = 'btn btn-outline-primary'/>
+                </p>
+            </form>
+            <form id = 'login'>
+                <h3>If you are already registered, login:</h3>
+                </br>
+                <p>
+                    <input type = 'text' name = 'userName' placeholder = 'username' class = 'form-control'/>
+                </p>
+                <p>
+                    <input type = 'password' name = 'userPassword' placeholder = 'password' class = 'form-control'/>
+                </p>
+                <p>
+                    <input type = 'submit' value = 'login' class = 'btn btn-outline-primary'/>
+                </p>
             </form>
             <p>
-                <a href = 'index.php' class = 'back_home_button'>Back home</a>
+                <a href = 'index.php' class = 'back_home_button btn btn-outline-primary'>Back home</a>
             </p>
         </section>
         <footer title = 'contactus'>
