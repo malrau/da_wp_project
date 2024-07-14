@@ -399,3 +399,7 @@ section>p {
     top: 50em;
     margin-left: 2em;
 }
+.simple_text>a {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 1);
+}
