@@ -17,7 +17,7 @@ Here is the representation of the conceptual and relational schemas:
 </p>
 <p>
 <h3>User management database</h3>
-User data are stored in a different database. It contains three entities and two relationships linking them. The entities are the user with relevant user data, the user's role and the permission associated with the role. For simplification, I only set up two user roles: <i>administrator</i>, which can make changes to the products database (add, remove or update products), <i>customer</i>, which can buy products. Roles are set up from the backend, it is not possible to create or manage roles via some web interface. Permissions are primarily operated by only allowing administrators to be directed to the page designed to interact with the products database. 
+User data are stored in a different database. It contains three entities and two relationships linking them. The entities are the user with relevant user data, the user's role and the permission associated with the role. For simplification, I only set up two user roles: <i>administrator</i>, which can make changes to the products database (add, remove or update products), <i>customer</i>, which can buy products. Permissions are primarily operated by only allowing administrators to be directed to the page designed to interact with the products database. 
 </br>
 The only way to create role types (and permissions as well) is by direct interaction with the comicsShopUsers MySQL database, with INSERT queries like the following:
 <ul>
@@ -26,7 +26,7 @@ The only way to create role types (and permissions as well) is by direct interac
 <li>INSERT INTO permission(permissionName, description) VALUES('make_changes', 'Can perform INSERT, DELETE and UPDATE actions on the products database');</li>
 <li>INSERT INTO permission(permissionName, description) VALUES('buy', 'Can buy products: action only affects the transaction table of the products database');</li>
 </ul>
-From a practical point of view, with the current implementation the <i>customer</i> user role is associated exclusively with the <i>buy</i> permission and the <i>admin</i> user role is exclusively associated with the <i>make_changes</i> permission, so it would not be necessary to have to tables, and permissions could simply be attributes of the userRole table or, even more, the roleName attribute would be sufficient to determine the associated permissions. However, in principle, while each userRole can determine one and only one permission, one permission could be associated to more than one role. This is not implemented, however, at this stage.
+From a practical point of view, with the current implementation, the <i>customer</i> user role is associated exclusively with the <i>buy</i> permission and the <i>admin</i> user role is exclusively associated with the <i>make_changes</i> permission, so it would not be necessary to have two tables, and permissions could simply be attributes of the userRole table or, even more, the roleName attribute would be sufficient to determine the associated permissions. However, in principle, while each userRole can determine one and only one permission, one permission could be associated to more than one role. This is not implemented, however, at this stage.
 </br>
 Some form of database user management is better be implemented as well.
 </br>
