@@ -6,20 +6,23 @@ USE comicsShopUsers;
 
 CREATE TABLE userData(
 	userID INT AUTO_INCREMENT,
-	firstName VARCHAR(24),
-	lastName VARCHAR(24),
+	firstName VARCHAR(24) NOT NULL,
+	lastName VARCHAR(24) NOT NULL,
 	address VARCHAR(256),
-	email VARCHAR(64),
-	pwd VARCHAR(16),
+	email VARCHAR(64) NOT NULL,
+	pwd VARCHAR(16) NOT NULL,
 	lastLogin DATE,
-	PRIMARY KEY(userID)
+	PRIMARY KEY(userID),
+	UNIQUE(email)
 	);
 
 CREATE TABLE userRole(
 	roleID INT AUTO_INCREMENT,
 	roleName VARCHAR(16),
 	description VARCHAR(128),
-	PRIMARY KEY(roleID)
+	PRIMARY KEY(roleID),
+	UNIQUE(roleName),
+	UNIQUE(description)
 	);
 
 CREATE TABLE establishing(
@@ -42,6 +45,8 @@ CREATE TABLE permission(
 	permissionName VARCHAR(16),
 	description VARCHAR(128),
 	PRIMARY KEY(permissionID)
+	UNIQUE(permissionName),
+	UNIQUE (description)
 	);
 
 CREATE TABLE giving(
