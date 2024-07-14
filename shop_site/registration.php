@@ -45,7 +45,8 @@
         </nav>
         <?php
             include('connect_reg.php');
-            /* Insert user data passed with the form into the comicsShopUsers database */
+            /* Insert user data passed with the form into the userData table of 
+               the comicsShopUsers database */
             $firstName = $_POST['firstName'];
             $lastName = $_POST['lastName'];
             $address = $_POST['address'];
@@ -55,28 +56,35 @@
                 echo 'The email values do not match!';
             }
             $password = $_POST['password'];
-            $date = date('Y-m-d');
-
-            $sql = "INSERT INTO userData(firstName, lastName, address, email, pwd, lastLogin) VALUES('$firstName', '$lastName', '$address', '$userEmail', '$password', '$date')";
+            $sql = "INSERT INTO userData(firstName, lastName, address, email, pwd) VALUES('$firstName', '$lastName', '$address', '$userEmail', '$password')";
             if (mysqli_query($conn, $sql)) {
-                echo '<h3 class = \'simple_text\'>';
-                echo $firstName . ', ' . 'you successfully registered on ' . '<i>' . 'Comic books \'r us' . '</i>';
-                echo '</br>';
-                echo 'You can now ' . '<a href = \'register.html\'>' . 'login' . '</a>';
-                echo '</h3';
+                /* retrieve the ID of the new user and insert it into the 
+                   establishing table of the comicsShopUsers database */
+                $date = date('Y-m-d');
+                $sql2 = "SELECT U.userID from userData AS U WHERE U.email = '$userEmail'";
+                $result = mysqli_query($conn, $sql2);
+                if ($result) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        foreach ($row as $key => $value) {
+                            $sql3 = "INSERT INTO establishing(aUser, aUserRole, dateRegistered) VALUES($value, 2, '$date')";
+                            if (mysqli_query($conn, $sql3)) {
+                                echo '<h3 class = \'simple_text\'>';
+                                echo $firstName . ', ' . 'you successfully registered on ' . '<i>' . 'Comic books \'r us' . '</i>';
+                                echo '</br>';
+                                echo 'You can now ' . '<a href = \'register.html\'>' . 'login' . '</a>';
+                                echo '</h3';
+                            } else {
+                                echo 'Registration failed. Check your data and ' . '<a href = \'register.html\'>' . 'try again' . '</a>';
+                            }
+                        }
+                    }
+                } else {
+                    mysqli_error($conn);
+                }
             } else {
-                echo 'Registration failed. Check your data and ' . '<a href = \'register.html\'>' . 'try again' . '</a>';
+                mysqli_error($conn);
             }
-            /*
-            $sql = "SELECT R.publisherName, S.seriesName, C.cbID, C.datePublished, C.issueNumber, C.coverTitle, C.price, C.coverFolder, I.count FROM series AS S, comicBook AS C, belonging AS B, publisher AS R, publishing AS P, innerQuery AS I WHERE C.cbID = B.comicBook AND S.seriesName = B.series AND S.seriesName = P.series AND P.publisher = R.publisherName AND C.cbID = I.cbID ORDER BY I.count DESC;";
-            $createView = mysqli_query($conn, $sqlView);
-            $result = mysqli_query($conn, $sql);
-            
-            $bestSellers = array();
-            while ($row = mysqli_fetch_assoc($result)) {
-                $bestSellers[] = $row;
-            }*/
-        ?>
+            ?>
         </section>
         <footer title = 'contactus'>
             <h3>For any info:</h3>
