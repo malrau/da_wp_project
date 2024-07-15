@@ -112,19 +112,34 @@ section>h3 {
     background-color: rgba(21, 96, 189, 0.9);
 }
 section#product {
-    min-height: 32em;
-    width: 64.8em;
-    margin-left: 18em;
+    height: 40em;
+    margin-left: 1em;
     margin-right: 1em;
     padding: 0.5em;
     font-family: Georgia, serif;
     border: black;
     border-style: double;
     background-color: rgba(255, 248, 231, 1);
-    /*background-image: url('images/alanford_tr.jpg');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+section#product>h3.cbtitle {
+    font-size: 0.8em;
+    margin: 2em;
+}
+section#product>h4.info {
+    font-size: 0.8em;
+    margin: 2em;
+}
+section#product>div.cbdes {
+    font-size: 0.8em;
+    float: top;
+}
+section#product>div.authors{
+    float: right;
+    font-size: 0.5em;
+    margin: 2em;
 }
 section .bestsellers {
     width: 20%;

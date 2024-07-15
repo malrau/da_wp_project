@@ -58,6 +58,7 @@ comicBookCard.prototype.makeElement = function() {
     
     // h3 child (contains date, pages and price)
     let cardH4 = document.createElement('h4');
+    cardH4.className = 'info';
     let cardPDate = document.createElement('p');
     let cardH4Date = document.createTextNode('Published: ' + this.date);
     cardPDate.appendChild(cardH4Date);
@@ -80,6 +81,7 @@ comicBookCard.prototype.makeElement = function() {
     
     // div child (contains authors)
     let cardAuthorsDiv = document.createElement('div');
+    cardAuthorsDiv.className = 'authors';
     let cardPWriter = document.createElement('p');
     let cardWriter = document.createTextNode('Story: ' + this.writerFirstName + ' ' + this.writerLastName);
     cardPWriter.appendChild(cardWriter);
