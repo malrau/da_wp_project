@@ -162,6 +162,7 @@ section#product>div>img.cbimg {
     overflow: unset;
     margin: 0.5em;
     margin-left: 0.7em;
+    box-shadow: 0.2em 0.2em 0.5em black;
 }
 section#product>div>aside>h3.cbtitle {
     font-size: 1.4em;
@@ -377,7 +378,15 @@ footer {
     position: absolute;
     float: bottom;
 }
-
+footer>h3 {
+    font-size: 1em;
+}
+footer>h4 {
+    font-size: 1em;
+}
+footer>h5 {
+    font-size: 0.6em;
+}
 
 /***************************/
 /****** register page ******/

@@ -84,12 +84,12 @@
         </section>
         <footer title = 'contactus'>
             <h3>For any info:</h3>
-            <a href = '/contact_us.html'>Contact us</a>
+            <a href = 'contact_us.html' class = 'back_home_button btn btn-outline-primary'>Contact us</a>
             <br/>
             <h4 align = 'center'>Comic books'r us SRL</h4>
             <h4 align = 'center'>P.zza Pugliatti 1, 98122 Messina</h4>
             <h4 align = 'center'><a href = 'mailto:comicsrus@email.comics'>email: comicsrus@email.comics</a></h4>
-            <br/>
+            <h5 align = 'left'>All images used in this website are copyrights &#169; of the respective publisher.</h5>
         </footer>
     </body>
 </html>
