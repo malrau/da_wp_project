@@ -29,7 +29,7 @@ comicBookCard.prototype.makeElement = function() {
     let p = document.createElement('p');
 
     // section
-    let cardSection = document.createElement('div');
+    let cardDiv = document.createElement('div');
     cardSection.className = 'marvelcb';
     
     // image child (contains cover image)
@@ -104,14 +104,14 @@ comicBookCard.prototype.makeElement = function() {
     cardNavigationDiv.appendChild(cardHomeA);
     
     // append all elements to the card section
-    cardSection.appendChild(cardImg);
-    cardSection.appendChild(cardH3);
-    cardSection.appendChild(cardH4);
-    cardSection.appendChild(cardDescriptionDiv);
-    cardSection.appendChild(cardAuthorsDiv);
-    cardSection.appendChild(cardNavigationDiv);
+    cardDiv.appendChild(cardImg);
+    cardDiv.appendChild(cardH3);
+    cardDiv.appendChild(cardH4);
+    cardDiv.appendChild(cardDescriptionDiv);
+    cardDiv.appendChild(cardAuthorsDiv);
+    cardDiv.appendChild(cardNavigationDiv);
     
-    return cardSection;
+    return cardDiv;
 };
 
 document.addEventListener('DOMContentLoaded', function () {
