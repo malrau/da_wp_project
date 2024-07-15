@@ -85,7 +85,7 @@ nav>h4 {
 }
 
 /***************************/
-/******    section    ******/
+/**** products section  ****/
 /***************************/
 section#products {
     min-height: 32em;
@@ -111,36 +111,6 @@ section>h3 {
     margin-left: 0.5em;
     background-color: rgba(21, 96, 189, 0.9);
 }
-section#product {
-    height: 40em;
-    margin-left: 1em;
-    margin-right: 1em;
-    padding: 0.5em;
-    font-family: Georgia, serif;
-    border: black;
-    border-style: double;
-    background-color: rgba(255, 248, 231, 1);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-section#product>h3.cbtitle {
-    font-size: 0.8em;
-    margin: 2em;
-}
-section#product>h4.info {
-    font-size: 0.8em;
-    margin: 2em;
-}
-section#product>div.cbdes {
-    font-size: 0.8em;
-    float: top;
-}
-section#product>div.authors{
-    float: right;
-    font-size: 0.5em;
-    margin: 2em;
-}
 section .bestsellers {
     width: 20%;
     height: 75%;
@@ -161,6 +131,65 @@ section .thumbnail {
 }
 section .best_des {
     background-color: rgba(180, 180, 180, 0.5);
+}
+
+/***************************/
+/*** comic book section  ***/
+/***************************/
+section#product {
+    height: 40em;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 0.5em;
+    font-family: Georgia, serif;
+    border: black;
+    border-style: double;
+    background-color: rgba(255, 248, 231, 1);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+section#product>div>aside {
+    width: 20em;
+    margin: 2em;
+    float: left;
+    position: relative;
+    top: 5em;
+}
+section#product>div>img.cbimg {
+    width: 20em;
+    float: left;
+    overflow: unset;
+    margin: 0.5em;
+    margin-left: 0.7em;
+}
+section#product>div>aside>h3.cbtitle {
+    font-size: 1.4em;
+    margin: 1em;
+}
+section#product>div>aside>h4.info {
+    font-size: 1em;
+    margin: 1.2em;
+}
+section#product>div>article {
+    width: 30em;
+    float: left;
+    position: relative;
+    top: 5em;
+}
+section#product>div>article>div.cbdes {
+    font-size: 1.2em;
+    text-justify: inter-character;
+}
+section#product>div>article>div.authors {
+    font-size: 1em;
+    position: relative;
+    top: 1em;
+}
+section#product>div>article>div.navigation {
+    font-size: 1em;
+    position: relative;
+    top: 5em;
 }
 
 /* contact_us.html */
@@ -290,6 +319,7 @@ section.bonellicb {
 section .cbtitle {
     margin-left: 1em;
 }
+/*
 section .cbimg {
     width: 17em;
     font-weight: bold;
@@ -314,6 +344,7 @@ section .navigation {
     top: 18em;
     right: 20em;
 }
+*/
 a.back_button {
     position: relative;
     top: 8rem;

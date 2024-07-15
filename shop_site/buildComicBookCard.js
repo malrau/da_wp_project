@@ -28,9 +28,11 @@ comicBookCard.prototype.makeElement = function() {
     let br = document.createElement('br');
     let p = document.createElement('p');
 
-    // section
+    // main div container and article and aside descendants
     let cardDiv = document.createElement('div');
     cardDiv.className = 'marvelcb';
+    let cardArticle = document.createElement('article');
+    let cardAside = document.createElement('aside');
     
     // image child (contains cover image)
     let cardImg = document.createElement('img');
@@ -72,6 +74,10 @@ comicBookCard.prototype.makeElement = function() {
     cardH4.appendChild(cardPPages);
     cardH4.appendChild(cardPPrice);
     
+    // attach H3 and H4 elements to aside element
+    cardAside.appendChild(cardH3);
+    cardAside.appendChild(cardH4);
+    
     // div child (contains description)
     let cardDescriptionDiv = document.createElement('div');
     cardDescriptionDiv.className = 'cbdes';
@@ -94,24 +100,38 @@ comicBookCard.prototype.makeElement = function() {
     // div child (contains navigation buttons)
     let cardNavigationDiv = document.createElement('div');
     cardNavigationDiv.className = 'navigation';
+    let cardBackP = document.createElement('p');
     let cardBackA = document.createElement('a');
-    cardBackA.src = '../marvel.html';
-    let cardBackText = document.createTextNode('Back to the Marvel Comics page');
+    if (this.publisher == 'Sergio Bonelli Editore') {
+        cardBackA.href = '/bonelli/bonelli.php';
+    } else if (this.publisher == 'DC Comics') {
+        cardBackA.href = '/dc/dc.php';
+    } else if (this.publisher == 'Marvel Comics') {
+        cardBackA.href = '/marvel/marvel.php';
+    }
+    cardBackA.className = 'btn btn-primary';
+    let cardBackText = document.createTextNode('Back to the ' + this.publisher + ' page');
     cardBackA.appendChild(cardBackText);
+    cardBackP.appendChild(cardBackA);
+    let cardHomeP = document.createElement('p');
     let cardHomeA = document.createElement('a');
-    cardHomeA.src = '../../index.php';
+    cardHomeA.href = '/index.php';
+    cardHomeA.className = 'btn btn-primary';
     let cardHomeText = document.createTextNode('Back to the main page of the shop');
     cardHomeA.appendChild(cardHomeText);
-    cardNavigationDiv.appendChild(cardBackA);
-    cardNavigationDiv.appendChild(cardHomeA);
+    cardHomeP.appendChild(cardHomeA);
+    cardNavigationDiv.appendChild(cardBackP);
+    cardNavigationDiv.appendChild(cardHomeP);
     
-    // append all elements to the card section
+    // attach H3 and H4 elements to article element
+    cardArticle.appendChild(cardDescriptionDiv);
+    cardArticle.appendChild(cardAuthorsDiv);
+    cardArticle.appendChild(cardNavigationDiv);
+    
+    // append all elements to the card div
     cardDiv.appendChild(cardImg);
-    cardDiv.appendChild(cardH3);
-    cardDiv.appendChild(cardH4);
-    cardDiv.appendChild(cardDescriptionDiv);
-    cardDiv.appendChild(cardAuthorsDiv);
-    cardDiv.appendChild(cardNavigationDiv);
+    cardDiv.appendChild(cardAside);
+    cardDiv.appendChild(cardArticle);
     
     return cardDiv;
 };
