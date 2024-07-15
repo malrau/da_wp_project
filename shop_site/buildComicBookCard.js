@@ -65,16 +65,11 @@ comicBookCard.prototype.makeElement = function() {
     let cardH4Pages = document.createTextNode('Pages: ' + this.pages);
     cardPPages.appendChild(cardH4Pages);
     let cardPPrice = document.createElement('p');
-    let cardH4Price = document.createTextNode('Price: ' + this.price);
+    let cardH4Price = document.createTextNode('Price: € ' + this.price);
     cardPPrice.appendChild(cardH4Price);
     cardH4.appendChild(cardPDate);
-    cardH4.appendChild(br);
     cardH4.appendChild(cardPPages);
-    cardH4.appendChild(br);
     cardH4.appendChild(cardPPrice);
-    cardH4.appendChild(br);
-    cardH4.appendChild(br);
-    cardH4.appendChild(br);
     
     // div child (contains description)
     let cardDescriptionDiv = document.createElement('div');
@@ -85,12 +80,14 @@ comicBookCard.prototype.makeElement = function() {
     
     // div child (contains authors)
     let cardAuthorsDiv = document.createElement('div');
+    let cardPWriter = document.createElement('p');
     let cardWriter = document.createTextNode('Story: ' + this.writerFirstName + ' ' + this.writerLastName);
+    cardPWriter.appendChild(cardWriter);
+    let cardPArtist = document.createElement('p');
     let cardArtist = document.createTextNode('Drawings: ' + this.artistFirstName + ' ' + this.artistLastName);
-    cardAuthorsDiv.appendChild(cardWriter);
-    cardAuthorsDiv.appendChild(br);
-    cardAuthorsDiv.appendChild(cardArtist);
-    cardAuthorsDiv.appendChild(br);
+    cardPArtist.appendChild(cardArtist);
+    cardAuthorsDiv.appendChild(cardPWriter);
+    cardAuthorsDiv.appendChild(cardPArtist);
 
     // div child (contains navigation buttons)
     let cardNavigationDiv = document.createElement('div');
@@ -100,7 +97,7 @@ comicBookCard.prototype.makeElement = function() {
     let cardBackText = document.createTextNode('Back to the Marvel Comics page');
     cardBackA.appendChild(cardBackText);
     let cardHomeA = document.createElement('a');
-    cardHomeA.src = '../../[T]myShop.html';
+    cardHomeA.src = '../../index.php';
     let cardHomeText = document.createTextNode('Back to the main page of the shop');
     cardHomeA.appendChild(cardHomeText);
     cardNavigationDiv.appendChild(cardBackA);
