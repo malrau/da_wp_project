@@ -321,7 +321,7 @@ footer {
 /***************************/
 /****** register page ******/
 /***************************/
-section#register_form {
+section#general_form {
     width: 64.8em;
     min-height: 40em;
     margin-left: 18em;
@@ -336,7 +336,7 @@ section#register_form {
     background-repeat: no-repeat;
     background-position: center;
 }
-div#registration {
+div#left_form {
     width: 35em;
     height: 30em;
     font-size: 0.8em;
@@ -354,17 +354,17 @@ div#registration {
     position: relative;
     float: left;
 }
-div#registration>h3 {
+div#left_form>h3 {
     font-size: 1em;
     font-weight: bold;
     color: rgba(95, 85, 65, 1);
 }
-div#registration>form>div>p {
+div#left_form>form>div>p {
     width: 15em;
     float: left;
 }
 
-div#login {
+div#right_form {
     width: 25em;
     height: 30em;
     font-size: 0.8em;
@@ -382,16 +382,16 @@ div#login {
     position: relative;
     float: left;
 }
-div#login>h3 {
+div#right_form>h3 {
     font-size: 1em;
     font-weight: bold;
     color: rgba(95, 85, 65, 1);
 }
-div#login>form>div>p {
+div#right_form>form>div>p {
     width: 15em;
     float: left;
 }
-section>form>h3>i {
+section>div>h3>i {
     font-size: 24px;
 }
 section>p {
