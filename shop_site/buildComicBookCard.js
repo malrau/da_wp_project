@@ -30,7 +30,7 @@ comicBookCard.prototype.makeElement = function() {
 
     // section
     let cardDiv = document.createElement('div');
-    cardSection.className = 'marvelcb';
+    cardDiv.className = 'marvelcb';
     
     // image child (contains cover image)
     let cardImg = document.createElement('img');
