@@ -73,6 +73,6 @@ The second script is used by the <i>comic_book.php</i> web page which is present
 In addition to the two described above, another script allows the creation of best seller comic books small cards, which are present only in the home page of the shop. The script <i>buildBestSellerSmallCard.js</i> is analogous to the <i>buildComicBookSmallCard.js</i> one, but it includes a <i>publisher</i> property which is needed to implement a conditional for the name of the publisher. Depending on the publisher name, the image element of the card contains the reference to the correct publisher folder where the comic book images are located. This was not necessary in the <i>buildComicBookSmallCard.js</i> script because it operates within the publisher web page, hence the publisher folder reference is not needed.
 </p>
 </br>
-Here is the UML representation of the three JavaScript objects described above, where proprieties and the unique method present are shown:
+Here is the UML representation of the three JavaScript objects described above, where properties and the unique method present are shown:
 <img src = 'https://github.com/malrau/da_wp_project/blob/main/uml/card_js_objects.png' />
 </ul>
