@@ -58,7 +58,7 @@ I use two stylesheets to control the style of the website. The main one is custo
 </br>
 <h3>JavaScript</h3>
 <p>
-Contrary to previous versions of the website, I also add JavaScript in the main page of the shop (JavaScript was already a central element in the construction of the publishers' pages and of the detailed comic books pages). In addition to the two already included scriptss, i.e. <i>buildComicBookSmallCard.js</i> and <i>buildComicBookCard.js</i>, I create the script <i>buildBestSellerSmallCard.js</i>: this is analogous to the script <i>buildComicBookSmallCard.js</i>, but it includes a <i>publisher</i> property which is needed to implement a conditional for the name of the publisher. Depending on the publisher name, the image element of the card contains the reference to the correct publisher folder where the comic book images are located. This was not necessary in the <i>buildComicBookSmallCard.js</i> script because it operates within the publisher web page, hence the publisher folder reference is not needed.
+Contrary to previous versions of the website, I also add JavaScript in the main page of the shop (JavaScript was already a central element in the construction of the publishers' pages and of the detailed comic books pages). The two main scripts are <i>buildComicBookSmallCard.js</i> and <i>buildComicBookCard.js</i>:
 </p>
 <ul>
 <p>
@@ -69,4 +69,10 @@ The first script is used by the publisher page. This page has php extension, bec
 <li><i>buildComicBookCard.js</i></li>
 The second script is used by the <i>comic_book.php</i> web page which is present within the <i>comics</i> folder of each publisher folder. This is a standard page which references the <i>buildComicBookCard.js</i> script for creating a more detailed and larger version of the comic book card. This script is very similar to the previous one. It creates card objects in the form of html "div" elements. The comic book attributes used as properties of the object are those used by the previous script and other ones: the description of the story, the number of pages of the comic book and the authors. The <i>makeElement</i> method exploits these properties to append elements to the main "div" element of the card and build a detailed comic book section of the comic book page.
 </p>
+<p>
+In addition to the two described above, another script allows the creation of best seller comic books small cards, which are present only in the home page of the shop. The script <i>buildBestSellerSmallCard.js</i> is analogous to the <i>buildComicBookSmallCard.js</i> one, but it includes a <i>publisher</i> property which is needed to implement a conditional for the name of the publisher. Depending on the publisher name, the image element of the card contains the reference to the correct publisher folder where the comic book images are located. This was not necessary in the <i>buildComicBookSmallCard.js</i> script because it operates within the publisher web page, hence the publisher folder reference is not needed.
+</p>
+</br>
+Here is the UML representation of the three JavaScript objects described above, where proprieties and the unique method present are shown:
+<img src = 'https://github.com/malrau/da_wp_project/blob/main/uml/card_js_objects.png' />
 </ul>
