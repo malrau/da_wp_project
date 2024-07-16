@@ -19,7 +19,14 @@
                     The best place to buy comic books from the top comic book
                     publishers such as American Marvel and DC Comics or Italian Sergio 
                     Bonelli Editore.
-                </h3>
+		    <?php
+			if (!isset($_COOKIE['username'])) {
+			    echo '</h3>';
+			} else {
+			    echo '</br>';
+			    echo 'Hi, ' . $_COOKIE['username'];
+			}
+		    ?>
             </div>
             <div id = 'right'>
                 <img src = 'images/superciuk.gif' class = 'header_img' />

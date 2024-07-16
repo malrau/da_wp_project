@@ -17,12 +17,19 @@
     <body>
         <header>
             <div id = 'left'>
-                <h1><a href = '/index.php'>Comic books'r us</a></h1>
+                <h1><a href = 'index.php'>Comic books'r us</a></h1>
                 <h3>
                     The best place to buy comic books from the top comic book
                     publishers such as American Marvel and DC Comics or Italian Sergio 
                     Bonelli Editore.
-                </h3>
+		    <?php
+			if (!isset($_COOKIE['username'])) {
+			    echo '</h3>';
+			} else {
+			    echo '</br>';
+			    echo 'Hi, ' . $_COOKIE['username'];
+			}
+		    ?>
             </div>
             <div id = 'right'>
                 <img src = '/images/superciuk.gif' class = 'header_img' />
