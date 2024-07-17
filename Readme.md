@@ -52,6 +52,9 @@ Server-side interactions are performed by embedding PHP code within HTML element
 </br>
 Server-side interaction are also crucial in the login/registration page. Here, as already specified above, two forms are present, both using POST method to pass data to the server. The server uses data to insert newly registered customers in the user management database together with their (<i>customer</i>) roles. Various checks are implemented here: the confirmation email must be equal to the value inserted into the email box, while duplicate user emails are not allowed by the database and an error message is displayed according to the <i>mysqli</i> driver error catching utilities. Email and password checks are implemented at the login to allow that the correct password is used by the appropriate user. Also in this case, <i>mysqli</i> catches query errors and reports the related error message. Finally, appropriate messages are outputted by PHP when successful registration or login are performed or when errors during checks operated by the server are found.
 </p>
+<p>
+The login process results in the creation of a cookie with the username and an expiration time three hours after the login time. The username information is thus kept throughout the site, in particular for the purpose of buying comic books. A PHP conditional statement controls the existence of the username value in the cookie, and if it exists it displays the username under the site logo in all of the relevant pages of the shop. Also, next to it a <i>logout</i> button allows for the erasure of the cookie by referencing a PHP file (<i>logout_cookie.php</i>) which sets the cookie with '<i>deleted</i>' as value and expiration time three hours back.
+</p>
 </br>
 <h3>Style sheets</h3>
 <p>
