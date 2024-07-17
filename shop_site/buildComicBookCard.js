@@ -5,14 +5,14 @@
 /* ************************************** */
 /* ************************************** */
 
-function comicBookCard(publisherName, seriesName, datePublished, cbID,
+function comicBookCard(publisherName, seriesName, cbID, datePublished,
                        issueNumber, coverTitle, nrPages, price,
                        description, coverFolder, writerFirstName,
                        writerLastName, artistFirstName, artistLastName) {
                            this.publisher = publisherName;
                            this.series = seriesName;
-                           this.date = datePublished;
                            this.id = cbID;
+                           this.date = datePublished;
                            this.number = issueNumber;
                            this.title = coverTitle;
                            this.pages = nrPages;
