@@ -1,7 +1,7 @@
 <?php
-    $expiryTime = time() + (60 * 60 * 3); // set expiry time within three hours
+    $expiryTime = time() - (60 * 60 * 3); // set expiry time back three hours
     $cookieKey = 'username';
-    $cookieVal = $_POST['userName'];
+    $cookieVal = 'delete';
     setcookie($cookieKey, $cookieVal, $expiryTime);
 ?>
 
@@ -16,14 +16,13 @@
     </head>
     <body>
         <?php
-            $userFirstName = $_POST['userFirstName'];
             echo '<section>';
             echo '<h3 class = \'simple_text\'>';
-            echo 'Welcome back to ' . '<i>' . 'Comic books \'r us' . '</i>' . ', ' . $userFirstName;
+            echo 'See you next time';
             echo '</br>';
             echo '</br>';
             echo '<a href = \'/index.php\' class = \'back_home_button btn btn-primary\'>';
-            echo 'Got back to the home page and start buying';
+            echo 'Back to the home page';
             echo '</a>';
             echo '</section>';
         ?>
