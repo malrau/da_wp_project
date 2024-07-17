@@ -22,8 +22,10 @@
             echo '<section>';
             echo '<h3 class = \'simple_text\'>';
             echo 'Welcome back to ' . '<i>' . 'Comic books \'r us' . '</i>' . ', ' . $userFirstName;
+            echo '</br>';
+            echo '</br>';
             echo '<a href = \'/index.php\' class = \'back_home_button btn btn-primary\'>';
-            echo 'Back to the home page';
+            echo 'Got back to the home page and start buying';
             echo '</a>';
             echo '</section>';
         ?>

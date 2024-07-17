@@ -55,40 +55,44 @@
 			$sql_check = "SELECT pwd FROM userData WHERE email = '$userName'";
 			$result = mysqli_query($conn, $sql_check);
 			if ($result) {
-				while ($row = mysqli_fetch_assoc($result)) {
-					foreach ($row as $key => $val) {
-						// if password is not equal to that in the database, try login again
-						if ($password != $val) {
-							echo 'Check your password and ' . '<a href = \'register.html\'>' . 'try again' . '</a>';
-							// if password is equal to that in the database, connect
-						} else {
-							$sql = "UPDATE userData SET lastLogin = '$date' WHERE email = '$userName'";
-							if (mysqli_query($conn, $sql)) {
-								$sql2 = "SELECT firstName FROM userData Where email = '$userName'";
-								$result = mysqli_query($conn, $sql2);
-								if ($result) {
-									while ($row = mysqli_fetch_assoc($result)) {
-										foreach ($row as $key => $val) {
-											echo '</br>';
-											echo '<section>';
-											echo '<form method = \'post\' action = \'login_cookie.php\'>';
-											echo "<input type = \'hidden\' name = 'userName' value = $userName>";
-											echo "<input type = \'hidden\' name = 'userFirstName' value = $val>";
-											echo '<input type = \'submit\' value = \'Confirm login\' class = \'btn btn-outline-primary\'/>';
-											echo '</section>';
+				if (mysqli_num_rows($result) == 0) {
+					echo 'Check your email and ' . '<a href = \'register.html\'>' . 'try again' . '</a>';
+				} else {
+					while ($row = mysqli_fetch_assoc($result)) {
+						foreach ($row as $key => $val) {
+							// if password is not equal to that in the database, try login again
+							if ($password != $val) {
+								echo 'Check your password and ' . '<a href = \'register.html\'>' . 'try again' . '</a>';
+								// if password is equal to that in the database, connect
+							} else {
+								$sql = "UPDATE userData SET lastLogin = '$date' WHERE email = '$userName'";
+								if (mysqli_query($conn, $sql)) {
+									$sql2 = "SELECT firstName FROM userData Where email = '$userName'";
+									$result2 = mysqli_query($conn, $sql2);
+									if ($result2) {
+										while ($row = mysqli_fetch_assoc($result2)) {
+											foreach ($row as $key => $val) {
+												echo '</br>';
+												echo '<section style = \'position : relative; left: 5em\'>';
+												echo '<form method = \'post\' action = \'login_cookie.php\'>';
+												echo "<input type = 'hidden' name = 'userName' value = $userName>";
+												echo "<input type = 'hidden' name = 'userFirstName' value = $val>";
+												echo '<input type = \'submit\' value = \'Confirm login\' class = \'btn btn-outline-primary\'/>';
+												echo '</section>';
+											}
 										}
+									} else {
+										mysqli_error($conn);
 									}
 								} else {
 									mysqli_error($conn);
 								}
-							} else {
-								mysqli_error($conn);
 							}
 						}
 					}
 				}
 			} else {
-				echo 'Check your email and ' . '<a href = \'register.html\'>' . 'try again' . '</a>';
+				mysqli_error($conn);
 			}
 
 					
