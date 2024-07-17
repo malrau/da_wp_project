@@ -5,12 +5,13 @@
 /* ************************************** */
 /* ************************************** */
 
-function comicBookCard(publisherName, seriesName, datePublished,
+function comicBookCard(publisherName, seriesName, datePublished, cbID,
                        issueNumber, coverTitle, nrPages, price,
                        description, coverFolder, writerFirstName,
                        writerLastName, artistFirstName, artistLastName) {
                            this.publisher = publisherName;
                            this.series = seriesName;
+                           this.cbID = cbID;
                            this.date = datePublished;
                            this.number = issueNumber;
                            this.title = coverTitle;
@@ -73,10 +74,21 @@ comicBookCard.prototype.makeElement = function() {
     cardH4.appendChild(cardPDate);
     cardH4.appendChild(cardPPages);
     cardH4.appendChild(cardPPrice);
+
+    // i element (contains shopping cart font-awesome icon)
+    let shopCart = document.createElement('i');
+    shopCart.className = 'fa-solid fa-cart-shopping';
     
-    // attach H3 and H4 elements to aside element
+    // anchor child (contains reference to buy.php)
+    let cardABuy = document.createElement('a');
+    a.href = 'buy.php?cbID=' + this.cbID;
+    a.className = 'btn btn-warning';
+    
+    // attach H3, H4 and anchor elements to aside element
     cardAside.appendChild(cardH3);
     cardAside.appendChild(cardH4);
+    cardAside.appendChild(shopCart);
+    cardAside.appendChild(cardABuy);
     
     // div child (contains description)
     let cardDescriptionDiv = document.createElement('div');
