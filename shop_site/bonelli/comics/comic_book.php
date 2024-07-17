@@ -27,7 +27,15 @@
 			    echo '</h3>';
 			} else {
 			    echo '</br>';
+			    echo '</br>';
+			    echo '<b>';
 			    echo 'Hi, ' . $_COOKIE['username'];
+			    echo '</b>';
+                            echo '&nbsp&nbsp&nbsp';
+                            echo '<a href = \'logout_cookie.php\' class = \'btn btn-light\'>';
+                            echo 'Logout';
+                            echo '</a>';
+			    echo '</h3>';
 			}
 		    ?>
             </div>
