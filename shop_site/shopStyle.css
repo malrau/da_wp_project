@@ -172,6 +172,13 @@ section#product>div>aside>h4.info {
     font-size: 1em;
     margin: 1.2em;
 }
+section#product>div>aside>a {
+    margin-left: 1em;
+}
+section#product>div>aside>i {
+    font-size: 24px;
+    margin-left: 0.5em;
+}
 section#product>div>article {
     width: 30em;
     float: left;

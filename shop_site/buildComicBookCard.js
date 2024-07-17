@@ -11,8 +11,8 @@ function comicBookCard(publisherName, seriesName, datePublished, cbID,
                        writerLastName, artistFirstName, artistLastName) {
                            this.publisher = publisherName;
                            this.series = seriesName;
-                           this.cbID = cbID;
                            this.date = datePublished;
+                           this.id = cbID;
                            this.number = issueNumber;
                            this.title = coverTitle;
                            this.pages = nrPages;
@@ -74,21 +74,23 @@ comicBookCard.prototype.makeElement = function() {
     cardH4.appendChild(cardPDate);
     cardH4.appendChild(cardPPages);
     cardH4.appendChild(cardPPrice);
+    
+    // anchor child (contains reference to buy.php)
+    let cardABuy = document.createElement('a');
+    cardABuy.href = 'buy.php?cbID=' + this.id;
+    cardABuy.className = 'btn btn-warning';
+    let cardABuyText = document.createTextNode('Buy');
+    cardABuy.append(cardABuyText);
 
     // i element (contains shopping cart font-awesome icon)
     let shopCart = document.createElement('i');
     shopCart.className = 'fa-solid fa-cart-shopping';
     
-    // anchor child (contains reference to buy.php)
-    let cardABuy = document.createElement('a');
-    a.href = 'buy.php?cbID=' + this.cbID;
-    a.className = 'btn btn-warning';
-    
     // attach H3, H4 and anchor elements to aside element
     cardAside.appendChild(cardH3);
     cardAside.appendChild(cardH4);
-    cardAside.appendChild(shopCart);
     cardAside.appendChild(cardABuy);
+    cardAside.appendChild(shopCart);
     
     // div child (contains description)
     let cardDescriptionDiv = document.createElement('div');
