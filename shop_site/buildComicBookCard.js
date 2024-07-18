@@ -77,7 +77,7 @@ comicBookCard.prototype.makeElement = function() {
     
     // anchor child (contains reference to buy.php)
     let cardABuy = document.createElement('a');
-    cardABuy.href = 'buy.php?cbID=' + this.id;
+    cardABuy.href = '/buy.php?cbID=' + this.id;
     cardABuy.className = 'btn btn-warning';
     let cardABuyText = document.createTextNode('Buy');
     cardABuy.append(cardABuyText);
