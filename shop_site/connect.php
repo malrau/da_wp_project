@@ -30,11 +30,14 @@
 	# create and check connection to MySQL by using the above defined PHP variables
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 	if(!$conn) {
-		echo "<h4>Cannot connect to MySQL: </h4>" . mysqli_connect_error();
-		echo "</br></br>";
-		echo "<a href = '../index.php'><button>Back to the main page</button></a>";
-		exit;
+            echo "<h4>Cannot connect to MySQL: </h4>" . mysqli_connect_error();
+            echo "</br></br>";
+            echo "<a href = '../index.php'><button>Back to the main page</button></a>";
+            exit;
 	} else {
+            if ($_SERVER['SCRIPT_FILENAME'] == '/var/www/html/buy.php') {
+                echo '</br>';
+            } else {
 		echo "<section id = 'products'>";
                 if ($_SERVER['SCRIPT_FILENAME'] == '/var/www/html/marvel/marvel.php') {
                     echo "<h3>Marvel Comics</h3>";
@@ -43,6 +46,6 @@
                 } elseif ($_SERVER['SCRIPT_FILENAME'] == '/var/www/html/bonelli/bonelli.php') {
                     echo "<h3>Sergio Bonelli Editore</h3>";
                 }
+            }
 	}
-
 ?>

@@ -35,7 +35,10 @@
 		echo "<a href = '../index.php'><button>Back to the main page</button></a>";
 		exit;
 	} else {
-		echo "<section id = 'register_form'>";
+                if ($_SERVER['SCRIPT_FILENAME'] == '/var/www/html/buy.php') {
+                    echo '</br>';
+                } else {
+                    echo "<section id = 'register_form'>";
+                }
 	}
-
 ?>
