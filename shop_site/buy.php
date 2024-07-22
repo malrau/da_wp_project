@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <link rel = 'stylesheet' href = '/shopStyle.css' />
         <link rel = 'stylesheet' href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' />
-	<script type = 'text/javascript' src = '/buildComicBookCard.js' /></script>
+	<script type = 'text/javascript' src = '/buildComicBookCard.js' ></script>
     </head>
     <body>
         <header>
@@ -44,20 +44,22 @@
                 <img src = '/images/zagor.png' class = 'header_img' />
             </div>
         </header>
+        <section id = 'product'>
         <?php
             if (!isset($_COOKIE['username'])) {
                 echo '<h3>';
                 echo 'To buy comic books you must be logged in';
+                echo '</br>';
                 echo '<a href = \'register.html\' class = \'btn btn-primary\'>';
                 echo 'Go to login';
                 echo '</h3>';
             } else {
                 $userName = $_COOKIE['username'];
-                include(connect_reg.php);
+                include('connect_reg.php');
                 $sql = "SELECT userID FROM userData WHERE email = '$userName'";
                 $result = (mysqli_query($conn, $sql));
                 if ($result) {
-                    if (mysqli_num_rows != 0) {
+                    if (mysqli_num_rows($result) != 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             foreach ($row as $key => $val) {
                                 $userID = $val;
@@ -70,7 +72,7 @@
                     mysqli_error($conn);
                 }
                 mysqli_close($conn);
-                include(connect.php);
+                include('connect.php');
                 $sql2 = "INSERT INTO transaction(aUser) VALUES('$userID')";
                 if (mysqli_query($conn, $sql2)) {
                     $sql3 = "SELECT MAX(transactionID) FROM transaction";
@@ -88,22 +90,23 @@
                     mysqli_error($conn);
                 }
                 $cbID = $_GET['cbID'];
+                $date = date('Y-m-d');
                 $sql4 = "INSERT INTO buying(transaction, comicBook, buyingDate) VALUES('$transactionID', '$cbID', '$date');";
                 if (mysqli_query($conn, $sql4)) {
-                    echo 'Congratulation for buying your comic book';
+                    echo '<h3 class = \'simple_text\'>';
+                    echo 'Congratulations for buying your comic book';
+                    echo '</br>';
+                    echo '</br>';
+                    echo '<a href = \'/index.php\' class = \'back_home_button btn btn-primary\'>';
+                    echo 'Back to the home page';
+                    echo '</a>';
+                    echo '</h3>';
                 } else {
                     mysqli_error($conn);
                 }
+                mysqli_close($conn);
             }
         ?>
-        <script>
-            productsArray = <?php echo json_encode($products); ?>;
-            productsSection = document.querySelector('#products');
-            for (let i = 0; i < productsArray.length; i++) {
-                let product = new comicBookCard(productsArray[i]['publisherName'], productsArray[i]['seriesName'], productsArray[i]['datePublished'], productsArray[i]['issueNumber'], productsArray[i]['coverTitle'], productsArray[i]['nrPages'], productsArray[i]['price'], productsArray[i]['description'], productsArray[i]['coverFolder'], productsArray[i]['wFirstName'], productsArray[i]['wLastName'], productsArray[i]['aFirstName'], productsArray[i]['aLastName']);
-                productsSection.appendChild(product.makeElement());
-            }
-        </script>
         </section>
         <footer title = 'contactus'>
             <h3>For any info:</h3>
