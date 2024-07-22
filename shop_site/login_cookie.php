@@ -25,6 +25,7 @@
             echo '<a href = \'/index.php\' class = \'back_home_button btn btn-primary\'>';
             echo 'Got back to the home page and start buying';
             echo '</a>';
+            echo '</h3>';
             echo '</section>';
         ?>
     </body>
